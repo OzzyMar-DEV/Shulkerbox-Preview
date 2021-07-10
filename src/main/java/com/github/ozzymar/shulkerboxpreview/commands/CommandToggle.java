@@ -32,6 +32,10 @@ public class CommandToggle extends ACommand {
             player.sendMessage(ColorFormatter.format(plugin.getPluginConfig().getConfig().getString("language.toggle-feedback-error")));
             return true;
         }
+        if (!plugin.getPluginConfig().getConfig().getBoolean("preview.toggle-command")) {
+            player.sendMessage(ColorFormatter.format(plugin.getPluginConfig().getConfig().getString("language.toggle-feedback-not-needed")));
+            return true;
+        }
         Connection connection;
         PreparedStatement preparedStatement;
         try {

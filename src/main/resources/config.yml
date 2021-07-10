@@ -8,5 +8,6 @@ enabled-worlds:
   - 'world_the_end'
 language:
   toggle-feedback-error: '&7[&c&l!&7] &4Invalid arguments used! Please use "true" or "false".'
+  toggle-feedback-not-needed: '&7[&c&l!&7] &4This is not needed as you administrator as disabled the need for this command.'
   toggle-feedback-successful: '&7[&a&l!&7] &aUpdated preferences.'
   reload-successful: '&7[&a&l!&7] &aReloaded Successfully!'
