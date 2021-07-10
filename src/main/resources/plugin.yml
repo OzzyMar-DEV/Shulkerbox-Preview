@@ -1,0 +1,7 @@
+name: ShulkerboxPreview
+version: ${project.version}
+main: com.github.ozzymar.shulkerboxpreview.ShulkerboxPreview
+api-version: 1.17
+authors: [ OzzyMar ]
+
+commands:
