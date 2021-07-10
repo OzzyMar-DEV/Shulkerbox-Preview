@@ -1,6 +1,7 @@
 preview:
   title: 'Shulker Box Preview:' # GUI name for the preview inventory (Color codes supported)
-  is-backpack: false # True = Can interact with contents | False = Preview/Can't interact
+  is-backpack: false # 'true' = Can interact with contents | 'false' = Preview/Can't interact
+  toggle-command: true # 'true' = Need to use /sbp-use <true/false> | 'false' removes the need for this
 enabled-worlds:
   - 'world'
   - 'world_nether'

@@ -4,7 +4,6 @@ import com.github.ozzymar.marsutils.api.colors.ColorFormatter;
 import com.github.ozzymar.shulkerboxpreview.ShulkerboxPreview;
 import com.github.ozzymar.shulkerboxpreview.database.SQLite;
 import org.bukkit.Bukkit;
-import org.bukkit.Color;
 import org.bukkit.GameMode;
 import org.bukkit.Sound;
 import org.bukkit.block.ShulkerBox;
@@ -74,6 +73,7 @@ public class ShulkerboxFunc implements Listener {
             if (!plugin.getPluginConfig().getConfig()
                     .getStringList("enabled-worlds").contains(player.getWorld().getName())) return;
 
+
             try {
                 if (!SQLite.isPlayerInDatabase(player)) {
                     Connection connection = SQLite.getConnection();
@@ -89,9 +89,12 @@ public class ShulkerboxFunc implements Listener {
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
-            if (!SQLite.doesPLayerHavePreviewEnabled(player).equalsIgnoreCase("true")) {
-                return;
+
+            if (plugin.getPluginConfig().getConfig().getBoolean("preview.toggle-command")) {
+                if (!SQLite.doesPlayerHavePreviewEnabled(player).equalsIgnoreCase("true"))
+                    return;
             }
+
 
             player.openInventory(shulkerPreview);
             player.playSound(player.getLocation(), Sound.BLOCK_SHULKER_BOX_OPEN, 1.0F, 1.0F);

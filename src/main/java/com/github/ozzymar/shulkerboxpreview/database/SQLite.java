@@ -59,7 +59,7 @@ public class SQLite {
         return isFound;
     }
 
-    public static String doesPLayerHavePreviewEnabled(Player player) {
+    public static String doesPlayerHavePreviewEnabled(Player player) {
         Connection connection = SQLite.getConnection();
         PreparedStatement updateStatement;
         String enabled = null;
