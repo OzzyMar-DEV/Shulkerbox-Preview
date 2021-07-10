@@ -5,7 +5,7 @@ import com.github.ozzymar.marsutils.api.config.YamlConfig;
 import com.github.ozzymar.shulkerboxpreview.commands.CommandReload;
 import com.github.ozzymar.shulkerboxpreview.commands.CommandToggle;
 import com.github.ozzymar.shulkerboxpreview.database.SQLite;
-import com.github.ozzymar.shulkerboxpreview.functionality.ShulkerBoxClickListener;
+import com.github.ozzymar.shulkerboxpreview.functionality.ShulkerboxFunc;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class ShulkerboxPreview extends JavaPlugin {
@@ -23,7 +23,7 @@ public final class ShulkerboxPreview extends JavaPlugin {
                 new CommandReload("sbp-reload", this),
                 new CommandToggle("sbp-use", this)
         );
-        this.getServer().getPluginManager().registerEvents(new ShulkerBoxClickListener(this), this);
+        this.getServer().getPluginManager().registerEvents(new ShulkerboxFunc(this), this);
     }
 
     @Override

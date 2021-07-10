@@ -11,6 +11,7 @@ import org.bukkit.block.ShulkerBox;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
@@ -26,13 +27,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class ShulkerBoxClickListener implements Listener {
+public class ShulkerboxFunc implements Listener {
 
     Map<UUID, ItemStack> getClickedItem = new HashMap<>();
 
     private final ShulkerboxPreview plugin;
 
-    public ShulkerBoxClickListener(ShulkerboxPreview plugin) {
+    public ShulkerboxFunc(ShulkerboxPreview plugin) {
         this.plugin = plugin;
     }
 
@@ -138,5 +139,15 @@ public class ShulkerBoxClickListener implements Listener {
                 player.playSound(player.getLocation(), Sound.ENTITY_SHULKER_CLOSE, 1, 1);
             }
         }
+    }
+
+    @EventHandler
+    public void onBlockPlace(BlockPlaceEvent event) {
+        if (!plugin.getPluginConfig().getConfig().getBoolean("preview.is-backpack")) return;
+        // STOP PLAYER FROM PLACING BOX IF BACKPACK IS ENABLED
+        if (ShulkerManager.boxMaterials.contains(event.getPlayer().getInventory().getItemInMainHand().getType()))
+            event.setCancelled(true);
+        if (ShulkerManager.boxMaterials.contains(event.getPlayer().getInventory().getItemInOffHand().getType()))
+            event.setCancelled(true);
     }
 }
