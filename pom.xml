@@ -6,7 +6,7 @@
 
     <groupId>com.github.ozzymar</groupId>
     <artifactId>ShulkerboxPreview</artifactId>
-    <version>3.2</version>
+    <version>3.3</version>
     <packaging>jar</packaging>
 
     <name>ShulkerboxPreview</name>
